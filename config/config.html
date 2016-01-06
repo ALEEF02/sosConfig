@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
+  <link rel='stylesheet' type='text/css' href='/css/style.css'>
+</head>
+<body>
+  <div class='item-container'>
+    <h1 class='title'>Serrano Middle School<br>Configuration Page</h1>
+  </div>
+
+  <div class='item-container'>
+    <div class='item-container-content'>
+      <div class='item'>
+        Enter your classes (E.g. History Room 300) Does not have to be in this format
+		</div>
+    </div>
+  </div>
+
+  <div class='item-container'>
+    <div class='item-container-header'>Classes</div>
+    <div class='item-container-content'>
+      <label class='item'>
+        Period 1
+        <input id='p1' type='text' class='item-input' placeholder='Period 1'>
+      </label><br>
+      <label class='item'>
+        Period 2
+        <input id='p2' type='text' class='item-input' placeholder='Period 2'>
+      </label><br>
+	  <label class='item'>
+        Period 3
+        <input id='p3' type='text' class='item-input' placeholder='Period 3'>
+      </label><br>
+	  <label class='item'>
+        Period 4
+        <input id='p4' type='text' class='item-input' placeholder='Period 4'>
+      </label><br>
+	  <label class='item'>
+        Period 5
+        <input id='p5' type='text' class='item-input' placeholder='Period 5'>
+      </label><br>
+	  <label class='item'>
+        Period 6
+        <input id='p6' type='text' class='item-input' placeholder='Period 6'>
+      </label>
+    </div>
+    <div class='item-container-footer'>
+      These settings only change on the watch after you click submit.
+    </div>
+  </div>
+
+  <div class='item-container'>
+    <div class='button-container'>
+      <input id='submitButton' type='button' class='item-button' value='SUBMIT'>
+    </div>
+  </div>
+
+  <script src='js/slate.min.js'></script>
+  <script>
+	function getData() {
+	var periods = {
+  period1: null,
+  period2: null, 
+  period3: null,
+  period4: null,
+  period5: null,
+  period6: null
+}
+	periods.period1 = $('#p1').val();
+	periods.period2 = $('#p2').val();
+	periods.period3 = $('#p3').val();
+	periods.period4 = $('#p4').val();
+	periods.period5 = $('#p5').val();
+	periods.period6 = $('#p6').val();
+	
+	console.log(JSON.stringify(periods));
+	return period;
+}
+	$('#submitButton').on("click", function() {
+	getData();
+	document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(getData()));
+	});
+	</script>
+</body>
+</html>
