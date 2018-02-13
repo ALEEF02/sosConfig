@@ -1,66 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-  <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
-  <link rel='stylesheet' type='text/css' href='/css/style.css'>
-</head>
-<body>
-  <div class='item-container'>
-    <h1 class='title'>SOS Configuration Page</h1>
-  </div>
-
-  <div class='item-container'>
-    <div class='item-container-content'>
-      <div class='item'>
-        Enter your information
-		</div>
-    </div>
-  </div>
-
-  <div class='item-container'>
-    <div class='item-container-content'>
-      <label class='item'>
-        Put in your secrect key from IFTTT here
-        <input id='p1' type='text' class='item-input' placeholder='12345...'>
-      </label>
-    </div>
-	<div class='item-container-content'>
-      <label class='item'>
-        First Name
-        <input id='firstName' type='text' class='item-input' placeholder='Bob'>
-      </label>
-    </div>
-    <div class='item-container-footer'>
-      <b>After you click Submit, please restart the app to start the functionality</b>
-    </div>
-  </div>
-
-  <div class='item-container'>
-    <div class='button-container'>
-      <input id='submitButton' type='button' class='item-button' value='SUBMIT'>
-    </div>
-  </div>
-
-  <script src='js/slate.min.js'></script>
-  <script>
-	function getData() {
-	
-	var key = {
-		s_key: null
-		fName: null
-	}
-	key.s_key = $('#p1').val();
-	key.fName = $('#firstName').val();
-	
-	console.log(JSON.stringify(key));
-	return key;
-}
-	$('#submitButton').on("click", function() {
-	getData();
-	document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(getData()));
-	});
-	</script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel='stylesheet' type='text/css' href='css/slate.min.css'>
+        <link rel='stylesheet' type='text/css' href='/css/style.css'>
+    </head>
+    <body>
+        <div class='item-container'>
+            <h1 class='title'>SOS Configuration Page</h1>
+        </div>
+        <div class='item-container'>
+            <div class='item-container-content'>
+                <div class='item'>
+                    Enter your information
+                </div>
+            </div>
+        </div>
+        <div class='item-container'>
+            <div class='item-container-content'>
+                <label class='item'>
+                Put in your secrect key from IFTTT here
+                <input id='p1' type='text' class='item-input' placeholder='12345...'>
+                </label>
+            </div>
+            <div class='item-container-content'>
+                <label class='item'>
+                First Name
+                <input id='firstName' type='text' class='item-input' placeholder='Bob'>
+                </label>
+            </div>
+            <div class='item-container-footer'>
+                <b>After you click Submit, please restart the app to start the functionality</b>
+            </div>
+        </div>
+        <div class='item-container'>
+            <div class='button-container'>
+                <input id='submitButton' type='button' class='item-button' value='SUBMIT'>
+            </div>
+        </div>
+        <script src='js/slate.min.js'></script>
+        <script>
+            function getData() {
+            	var key = {
+            		s_key: null
+            		fName: null
+            	}
+            	key.s_key = $('#p1').val();
+            	key.fName = $('#firstName').val();
+            
+            	console.log(JSON.stringify(key));
+            	return key;
+            }
+            $('#submitButton').on("click", function() {
+            	getData();
+            	document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(getData()));
+            });
+        </script>
+    </body>
 </html>
