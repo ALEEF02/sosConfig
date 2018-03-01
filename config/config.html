@@ -23,6 +23,10 @@
                 Put in your secrect key from IFTTT here
                 <input id='p1' type='text' class='item-input' placeholder='12345...'>
                 </label>
+				<label class="item">
+     				Submitting a key
+      				<input type="checkbox" class="item-toggle" name="toggle-2" id='sub' checked>
+    			</label>
             </div>
             <div class='item-container-content'>
                 <label class='item'>
@@ -54,11 +58,13 @@
             	var key = {
             		s_key: null,
             		fName: null,
-					wGoal: null
+					wGoal: null,
+					submiting: null
             	}
             	key.s_key = $('#p1').val();
             	key.fName = $('#firstName').val();
 				key.wGoal = $('#goalWater').val();
+				key.submiting = $('#sub').val();
             
             	console.log(JSON.stringify(key));
             	return key;
