@@ -20,14 +20,14 @@
         <div class='item-container'>
             <div class='item-container-content'>
                 <label class='item'>
-                Put in your secrect key from IFTTT here
-                <input id='p1' type='text' class='item-input' placeholder='12345...'>
+                	Put in your secrect key from IFTTT here
+                	<input id='p1' type='text' class='item-input' placeholder='12345...'>
                 </label>
             </div>
             <div class='item-container-content'>
                 <label class='item'>
-                First Name
-                <input id='firstName' type='text' class='item-input' placeholder='Bob'>
+                	First Name
+                	<input id='firstName' type='text' class='item-input' placeholder='Bob'>
                 </label>
             </div>
 			<div class='item-container-content'>
@@ -39,6 +39,24 @@
       				</div>
                 </label>
             </div>
+			<div class='item-container-content'>
+                <label class='item'>
+					Water Goal (Oz, 8 Oz = 1 cup)
+                	<input id='goalWater' type="range" class="item-slider" name="slider-1" value="64" min="16" max="128">
+      				<div class="item-input-wrapper item-slider-text">
+        				<input id='goalWater' type="text" class="item-input" name="slider-1" value="64" min="16" max="128">
+      				</div>
+                </label>
+            </div>
+			<div class='item-container-content'>
+				<label class="item">
+					Use pins for water goal?
+					<select id="pins" name="select-1" dir='rtl' class="item-select">
+						<option class="item-select-option" selected>Yes</option>
+						<option class="item-select-option">No</option>
+					</select>
+				</label>
+			</div>
             <div class='item-container-footer'>
                 <b>After you click Submit, please restart the app to start the functionality</b>
             </div>
@@ -54,11 +72,13 @@
             	var key = {
             		s_key: null,
             		fName: null,
-			wGoal: null
+					wGoal: null,
+					pushPins: null
             	}
             	key.s_key = $('#p1').val();
             	key.fName = $('#firstName').val();
-		key.wGoal = $('#goalWater').val();
+				key.wGoal = $('#goalWater').val();
+				key.pushPins = $('#pins').val();
             
             	console.log(JSON.stringify(key));
             	return key;
